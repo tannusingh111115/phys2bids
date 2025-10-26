@@ -4,6 +4,9 @@ import pytest
 
 from phys2bids import io, viz
 
+import matplotlib
+matplotlib.use("Agg")
+
 
 def test_plot_all(samefreq_full_acq_file):
     chtrig = 3

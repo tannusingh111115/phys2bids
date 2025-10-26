@@ -4,6 +4,7 @@ import math
 import re
 import shutil
 import subprocess
+import phys2bids.phys2bids as p2b
 from os import remove
 from os.path import isfile, join, split
 
@@ -113,7 +114,17 @@ def test_integration_heuristic(skip_integration, multifreq_lab_file):
     test_heur = join(heur_path, "heur_test_multifreq.py")
 
     # Move into folder
-    subprocess.run(f"cd {test_path}", shell=True, check=True)
+    p2b.phys2bids(
+        filename=test_filename,
+        indir=test_path,
+        outdir=test_outdir,
+        chtrig=test_chtrig,
+        tr=test_tr,
+        num_timepoints_expected=test_ntp,
+        thr=test_thr,
+        heur_file=test_heur
+    )
+
     # Phys2bids call through terminal
     command_str = (
         f"phys2bids -in {test_full_path} ",
