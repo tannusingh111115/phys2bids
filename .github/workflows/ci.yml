@@ -8,8 +8,8 @@ jobs:
 
     strategy:
       matrix:
-        python: [3.8, 3.9, 3.10]
-        numpy: [1.22, 1.23, 1.24]
+        python: ['3.8', '3.9', '3.10']
+        numpy: ['1.22', '1.23', '1.24']
 
     steps:
       - uses: actions/checkout@v4
